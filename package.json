@@ -1,0 +1,24 @@
+{
+  "name": "NodeJS__Weather-Console-App",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisureza/NodeJS__Weather-Console-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrisureza/NodeJS__Weather-Console-App/issues"
+  },
+  "homepage": "https://github.com/chrisureza/NodeJS__Weather-Console-App#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "inquirer": "^7.3.3"
+  }
+}
