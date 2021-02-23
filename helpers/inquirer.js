@@ -64,13 +64,13 @@ const readInput = async (message) => {
 	return desc;
 };
 
-const tasksListToDelete = async (tasks = []) => {
-	const choices = tasks.map((task, index) => {
-		const { id, desc } = task;
-		const taskIndex = `${index + 1}.`.green;
+const citiesList = async (places = []) => {
+	const choices = places.map((place, index) => {
+		const { id, name } = place;
+		const placeIndex = `${index + 1}.`.green;
 		return {
 			value: id,
-			name: `${taskIndex} ${desc}`
+			name: `${placeIndex} ${name}`
 		};
 	});
 	choices.unshift({
@@ -80,30 +80,30 @@ const tasksListToDelete = async (tasks = []) => {
 	const { id } = await inquirer.prompt({
 		type: 'list',
 		name: 'id',
-		message: 'Delete task: ',
+		message: 'Select place: ',
 		choices
 	});
 	return id;
 };
 
-const tasksListToComplete = async (tasks = []) => {
-	const choices = tasks.map((task, index) => {
-		const { id, desc } = task;
-		const taskIndex = `${index + 1}.`.green;
-		return {
-			value: id,
-			name: `${taskIndex} ${desc}`,
-			checked: (task.completedAt),
-		};
-	});
-	const { ids } = await inquirer.prompt({
-		type: 'checkbox',
-		name: 'ids',
-		message: 'Select the task(s) to complete: ',
-		choices
-	});
-	return ids;
-};
+// const tasksListToComplete = async (tasks = []) => {
+// 	const choices = tasks.map((task, index) => {
+// 		const { id, desc } = task;
+// 		const taskIndex = `${index + 1}.`.green;
+// 		return {
+// 			value: id,
+// 			name: `${taskIndex} ${desc}`,
+// 			checked: (task.completedAt),
+// 		};
+// 	});
+// 	const { ids } = await inquirer.prompt({
+// 		type: 'checkbox',
+// 		name: 'ids',
+// 		message: 'Select the task(s) to complete: ',
+// 		choices
+// 	});
+// 	return ids;
+// };
 
 const confirm = async (message) => {
 	const question = {
@@ -120,7 +120,6 @@ module.exports = {
 	inquirerMenu,
 	pause,
 	readInput,
-	tasksListToDelete,
-	tasksListToComplete,
+	citiesList,
 	confirm
 };
