@@ -16,16 +16,22 @@ const main = async () => {
 				const cities = await searches.searchCity(place);
 				const selectedId = await citiesList(cities);
 
+				if (selectedId === '0') break;
+
 				const selectedCity = cities.find(city => city.id === selectedId);
 
 				const { name, lat, lng } = selectedCity;
+				const currentWeather = await searches.searchWeather(lat, lng);
+				const { temp, min, max, desc } = currentWeather;
+
 				console.log('\n-----Information-----');
 				console.log('City: ', name);
 				console.log('Lat: ', lat);
 				console.log('Lng: ', lng);
-				console.log('Temp: ',);
-				console.log('Min: ',);
-				console.log('Max: ',);
+				console.log('Temp: ', temp);
+				console.log('Min: ', min);
+				console.log('Max: ', max);
+				console.log('Weather description: ', desc);
 				break;
 			case 2:
 
