@@ -19,6 +19,7 @@ const main = async () => {
 				if (selectedId === '0') break;
 
 				const selectedCity = cities.find(city => city.id === selectedId);
+				searches.addHistory(selectedCity.name);
 
 				const { name, lat, lng } = selectedCity;
 				const currentWeather = await searches.searchWeather(lat, lng);
@@ -34,7 +35,10 @@ const main = async () => {
 				console.log('Weather description: ', desc);
 				break;
 			case 2:
-
+				searches.historyCapitalized.forEach((place, index) => {
+					const idx = `${index + 1}`.green;
+					console.log(`${idx} ${place}`);
+				});
 				break;
 		}
 
